@@ -1,4 +1,7 @@
 package br.univille.entity;
+
+import java.util.ArrayList;
+
 public class Pessoa { // Formas
 
     private String nome;  //Variavel - Atributo - Propriedade  // <- Informação
@@ -6,7 +9,7 @@ public class Pessoa { // Formas
     private String endereco;
     
     private Cidade cidade;
-
+    private ArrayList<Pokemon> listapokemon = new ArrayList<Pokemon>();
     
 
     //Construtor  (mesmo nome da classe, não tem retorno)
@@ -65,6 +68,16 @@ public class Pessoa { // Formas
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
     }
+    
 
+    // Getter e Setter listapokemon
+
+    public ArrayList<Pokemon> getListapokemon() {
+        return listapokemon;
+    }
+    public void setListapokemon(ArrayList<Pokemon> listapokemon) {
+        this.listapokemon = listapokemon;
+    }
+    
 
 }
