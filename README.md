@@ -31,6 +31,10 @@ Como um usuário, eu gostaria de editar as informações do meu perfil
 Como um usuário, eu gostaria de seguir ou adicionar outros alunos como amigos
 Como um usuário, eu gostaria de configurar as opções de privacidade da minha conta
 Como um usuário, eu gostaria de receber notificações sobre interações nas minhas postagens e mensagens 
+Como um usuário, eu gostaria de modificar minhas configurações como tema (claro e escuro), informações da conta, fazer logout, apagar conta e adicionar informações em relação ao meu perfil.
+Como um usuário, eu gostaria de adicionar informações relacionadas ao perfil nas configurações como: Bio, atlética.
+Como um usuáio, eu gostaria de remover postagens que eu criei.
+Como um usuário, eu gostaria de remover comentários que eu fiz em publicações.
 ## Comandos do Git
 
 ### Instalação
@@ -82,3 +86,7 @@ git checkout -b branch-seunome
 5) pacote digitar domínio ao contrário ex: br.univille
 6) nome do projeto em minúsculo
 7) usar a pasta sugerida pelo vscode
+
+### setas não esqueça
+
+se for uma seta aberta ou pintada com risco cheio é variável
