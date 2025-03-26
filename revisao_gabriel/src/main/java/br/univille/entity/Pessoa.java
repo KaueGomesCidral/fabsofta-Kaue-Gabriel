@@ -7,6 +7,7 @@ public class Pessoa {
     private long id;
     private String nome;
     private String endereco;
+    
     private Cidade cidade;
 
     private ArrayList<Pokemon> listaPokemon  = new ArrayList<Pokemon>();
