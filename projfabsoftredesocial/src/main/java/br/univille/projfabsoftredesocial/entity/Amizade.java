@@ -16,5 +16,32 @@ public class Amizade {
     @JoinColumn(name = "amigo_id")
     private Usuario amigo;
 
+
     // Getters e Setters
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Usuario getAmigo() {
+        return amigo;
+    }
+
+    public void setAmigo(Usuario amigo) {
+        this.amigo = amigo;
+    }
+
+    
 }
