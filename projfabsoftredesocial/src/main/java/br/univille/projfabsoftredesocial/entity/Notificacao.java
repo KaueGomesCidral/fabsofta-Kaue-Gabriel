@@ -12,11 +12,9 @@ public class Notificacao {
     private String tipo;
     private LocalDateTime dataHora;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "destinatario_id")
     private Usuario destinatario;
-
-
 
     // Getters e Setters
     

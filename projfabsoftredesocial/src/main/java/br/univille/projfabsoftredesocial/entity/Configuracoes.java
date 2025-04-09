@@ -12,7 +12,7 @@ public class Configuracoes {
     private boolean privacidadeConta; // true para conta privada, false para pública
     private boolean notificacoesAtivas; // true para ativar notificações, false para desativar
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 

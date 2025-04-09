@@ -11,7 +11,7 @@ public class Postagem {
 
     private String texto;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "autor_id")
     private Usuario autor;
 

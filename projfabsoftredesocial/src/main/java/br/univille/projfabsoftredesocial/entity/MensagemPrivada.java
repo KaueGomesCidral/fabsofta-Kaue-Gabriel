@@ -12,14 +12,13 @@ public class MensagemPrivada {
     private String conteudo;
     private LocalDateTime dataHora;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "remetente_id")
     private Usuario remetente;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "destinatario_id")
     private Usuario destinatario;
-
 
     // Getters e Setters
     

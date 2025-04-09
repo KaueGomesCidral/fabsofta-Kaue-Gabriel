@@ -10,17 +10,16 @@ public class Comentario {
 
     private String texto;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "autor_id")
     private Usuario autor;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "postagem_id")
     private Postagem postagem;
 
+    // Getters e Setters
 
-     // Getters e Setters
-     
     public Long getId() {
         return id;
     }
@@ -52,7 +51,4 @@ public class Comentario {
     public void setPostagem(Postagem postagem) {
         this.postagem = postagem;
     }
-
-   
-    
 }
