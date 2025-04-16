@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Amizade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "usuario_id")
@@ -18,11 +18,11 @@ public class Amizade {
 
     // Getters e Setters
     
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

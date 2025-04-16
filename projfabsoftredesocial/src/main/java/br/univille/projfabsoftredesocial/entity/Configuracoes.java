@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Configuracoes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private boolean temaEscuro; // true para tema escuro, false para tema claro
     private boolean privacidadeConta; // true para conta privada, false para pública
@@ -19,11 +19,11 @@ public class Configuracoes {
 
     // Getters e Setters
     
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

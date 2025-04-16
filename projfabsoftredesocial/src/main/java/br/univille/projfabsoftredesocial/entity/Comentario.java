@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Comentario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private String texto;
 
@@ -20,11 +20,11 @@ public class Comentario {
 
     // Getters e Setters
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
