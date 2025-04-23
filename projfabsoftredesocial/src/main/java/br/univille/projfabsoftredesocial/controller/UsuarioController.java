@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.univille.projfabsoftredesocial.entity.Usuario;
 import br.univille.projfabsoftredesocial.service.UsuarioService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -65,5 +67,19 @@ public class UsuarioController {
 
         service.save(usuarioAntigo);
         return new ResponseEntity<Usuario>(usuarioAntigo, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Usuario> deleteUsuario(@PathVariable long id){
+        if(id <= 0){
+            return ResponseEntity.badRequest().build();
+        }
+        var usuarioExcluir = service.getById(id);
+        if (usuarioExcluir == null){
+            return ResponseEntity.notFound().build();
+        }
+
+        service.delete(id);
+        return new ResponseEntity<Usuario>(usuarioExcluir, HttpStatus.OK);
     }
 }

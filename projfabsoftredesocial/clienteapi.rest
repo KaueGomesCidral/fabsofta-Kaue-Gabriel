@@ -1,4 +1,4 @@
-### API CLIENTE GET
+### API USUARIO GET
 
 GET http://localhost:8080/api/v1/usuarios
 
@@ -18,3 +18,24 @@ Content-Type: application/json
     "atletica": "atenum",
     "dataNascimento": "2000-04-22"
 }
+
+### API CLIENTE PUT
+
+PUT http://localhost:8080/api/v1/usuarios
+Content-Type: application/json
+
+{
+    "nome": "zezinho da gama",
+    "curso": "sistemas",
+    "semestreTurma": "5an",
+    "telefone": "88888903",
+    "email": "ze@gmail.com",
+    "senha": "ze123",
+    "bio": "oi",
+    "atletica": "atenum",
+    "dataNascimento": "2000-04-22"
+}
+
+### API CLIENTE DELETE
+
+DELETE http://localhost:8080/api/v1/usuarios/3
