@@ -2,6 +2,10 @@
 
 GET http://localhost:8080/api/v1/usuarios
 
+### API POSTAGEM GET
+
+GET http://localhost:8080/api/v1/postagens
+
 ### API CLIENTE POST
 
 POST http://localhost:8080/api/v1/usuarios
@@ -17,6 +21,28 @@ Content-Type: application/json
     "bio": "oi",
     "atletica": "atenum",
     "dataNascimento": "2000-04-22"
+}
+
+### API POSTAGEM POST
+
+POST http://localhost:8080/api/v1/postagens
+Content-Type: application/json
+
+{
+    "autor": {
+        "id": 1,
+        "nome": "zezinho",
+        "curso": "sistemas",
+        "semestreTurma": "5an",
+        "telefone": "88888903",
+        "email": "kaue@gmail.com",
+        "senha": "ze123",
+        "bio": "oi",
+        "atletica": "atenum",
+        "dataNascimento": "2000-04-22"
+    },
+    "texto": "oi",
+    "curtidas": []
 }
 
 ### API CLIENTE PUT
