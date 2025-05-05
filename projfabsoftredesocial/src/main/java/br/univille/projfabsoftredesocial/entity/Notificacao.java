@@ -1,7 +1,14 @@
 package br.univille.projfabsoftredesocial.entity;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Notificacao {
@@ -50,6 +57,21 @@ public class Notificacao {
         this.destinatario = destinatario;
     }
 
+    private String mensagem;
     
+    public String getMensagem() {
+        return mensagem;
+    }
     
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public Usuario getUsuario() {
+        return destinatario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.destinatario = usuario;
+    }
 }

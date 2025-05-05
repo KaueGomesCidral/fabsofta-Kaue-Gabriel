@@ -2,26 +2,26 @@
 
 GET http://localhost:8080/api/v1/usuarios
 
-### API POSTAGEM GET
-
-GET http://localhost:8080/api/v1/postagens
-
-### API CLIENTE POST
+### API USUARIO POST
 
 POST http://localhost:8080/api/v1/usuarios
 Content-Type: application/json
 
 {
-    "nome": "zezinho",
-    "curso": "sistemas",
-    "semestreTurma": "5an",
-    "telefone": "88888903",
-    "email": "ze@gmail.com",
-    "senha": "ze123",
-    "bio": "oi",
-    "atletica": "atenum",
-    "dataNascimento": "2000-04-22"
+    "nome": "joaozinho",
+    "curso": "engenharia",
+    "semestreTurma": "3an",
+    "telefone": "99999999",
+    "email": "joao@gmail.com",
+    "senha": "joao123",
+    "bio": "Olá, sou João!",
+    "atletica": "engenharia",
+    "dataNascimento": "1999-05-15"
 }
+
+### API POSTAGEM GET
+
+GET http://localhost:8080/api/v1/postagens
 
 ### API POSTAGEM POST
 
@@ -31,37 +31,110 @@ Content-Type: application/json
 {
     "autor": {
         "id": 1,
-        "nome": "zezinho",
-        "curso": "sistemas",
-        "semestreTurma": "5an",
-        "telefone": "88888903",
-        "email": "kaue@gmail.com",
-        "senha": "ze123",
-        "bio": "oi",
-        "atletica": "atenum",
-        "dataNascimento": "2000-04-22"
+        "nome": "joaozinho",
+        "curso": "engenharia",
+        "semestreTurma": "3an",
+        "telefone": "99999999",
+        "email": "joao@gmail.com",
+        "senha": "joao123",
+        "bio": "Olá, sou João!",
+        "atletica": "engenharia",
+        "dataNascimento": "1999-05-15"
     },
-    "texto": "oi",
+    "texto": "Primeira postagem!",
     "curtidas": []
 }
 
-### API CLIENTE PUT
+### API COMENTARIO GET
 
-PUT http://localhost:8080/api/v1/usuarios
+GET http://localhost:8080/api/v1/comentarios
+
+### API COMENTARIO POST
+
+POST http://localhost:8080/api/v1/comentarios
 Content-Type: application/json
 
 {
-    "nome": "zezinho da gama",
-    "curso": "sistemas",
-    "semestreTurma": "5an",
-    "telefone": "88888903",
-    "email": "ze@gmail.com",
-    "senha": "ze123",
-    "bio": "oi",
-    "atletica": "atenum",
-    "dataNascimento": "2000-04-22"
+    "texto": "Ótima postagem!",
+    "autor": {
+        "id": 1,
+        "nome": "joaozinho"
+    },
+    "postagem": {
+        "id": 1,
+        "texto": "Primeira postagem!"
+    }
 }
 
-### API CLIENTE DELETE
+### API MENSAGEM PRIVADA GET
 
-DELETE http://localhost:8080/api/v1/usuarios/3
+GET http://localhost:8080/api/v1/mensagens
+
+### API MENSAGEM PRIVADA POST
+
+POST http://localhost:8080/api/v1/mensagens
+Content-Type: application/json
+
+{
+    "texto": "Olá, tudo bem?",
+    "remetente": {
+        "id": 1,
+        "nome": "joaozinho"
+    },
+    "destinatario": {
+        "id": 2,
+        "nome": "mariazinha"
+    }
+}
+
+### API NOTIFICACAO GET
+
+GET http://localhost:8080/api/v1/notificacoes
+
+### API NOTIFICACAO POST
+
+POST http://localhost:8080/api/v1/notificacoes
+Content-Type: application/json
+
+{
+    "mensagem": "Você recebeu uma nova mensagem!",
+    "usuario": {
+        "id": 1,
+        "nome": "joaozinho"
+    }
+}
+
+### API AMIZADE GET
+
+GET http://localhost:8080/api/v1/amizades
+
+### API AMIZADE POST
+
+POST http://localhost:8080/api/v1/amizades
+Content-Type: application/json
+
+{
+    "usuario": {
+        "id": 1,
+        "nome": "joaozinho"
+    },
+    "amigo": {
+        "id": 2,
+        "nome": "mariazinha"
+    },
+    "status": "ACEITO"
+}
+
+### API CONFIGURACOES GET
+
+GET http://localhost:8080/api/v1/configuracoes
+
+### API CONFIGURACOES POST
+
+POST http://localhost:8080/api/v1/configuracoes
+Content-Type: application/json
+
+{
+    "temaEscuro": true,
+    "notificacoesAtivas": false
+}

@@ -1,7 +1,14 @@
 package br.univille.projfabsoftredesocial.entity;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class MensagemPrivada {
@@ -60,6 +67,11 @@ public class MensagemPrivada {
 
     public void setDestinatario(Usuario destinatario) {
         this.destinatario = destinatario;
+    }
+
+    public Object getTexto() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getTexto'");
     }
 
     
