@@ -19,6 +19,18 @@ Content-Type: application/json
     "dataNascimento": "1999-05-15"
 }
 
+### API USUARIO PUT
+
+PUT http://localhost:8080/api/v1/usuarios Content-Type: application/json
+
+{
+"nome": "zezinho da gama", "curso": "sistemas", "semestreTurma": "5an", "telefone": "88888903", "email": "ze@gmail.com", "senha": "ze123", "bio": "oi", "atletica": "atenum", "dataNascimento": "2000-04-22"
+}
+
+### API USUARIO DELETE
+
+DELETE http://localhost:8080/api/v1/usuarios/3
+
 ### API POSTAGEM GET
 
 GET http://localhost:8080/api/v1/postagens
@@ -45,6 +57,24 @@ Content-Type: application/json
     "curtidas": []
 }
 
+### API POSTAGEM PUT
+
+PUT http://localhost:8080/api/v1/postagens/1
+Content-Type: application/json
+
+{
+    "texto": "Texto atualizado da postagem!",
+    "autor": {
+        "id": 1,
+        "nome": "joaozinho"
+    },
+    "curtidas": [2, 3]
+}
+
+### API POSTAGEM DELETE
+
+DELETE http://localhost:8080/api/v1/postagens/1
+
 ### API COMENTARIO GET
 
 GET http://localhost:8080/api/v1/comentarios
@@ -65,6 +95,27 @@ Content-Type: application/json
         "texto": "Primeira postagem!"
     }
 }
+
+### API COMENTARIO PUT
+
+PUT http://localhost:8080/api/v1/comentarios/1
+Content-Type: application/json
+
+{
+    "texto": "Comentário atualizado!",
+    "autor": {
+        "id": 1,
+        "nome": "joaozinho"
+    },
+    "postagem": {
+        "id": 1,
+        "texto": "Primeira postagem!"
+    }
+}
+
+### API COMENTARIO DELETE
+
+DELETE http://localhost:8080/api/v1/comentarios/1
 
 ### API MENSAGEM PRIVADA GET
 
@@ -87,6 +138,27 @@ Content-Type: application/json
     }
 }
 
+### API MENSAGEM PRIVADA PUT
+
+PUT http://localhost:8080/api/v1/mensagens/1
+Content-Type: application/json
+
+{
+    "conteudo": "Mensagem atualizada!",
+    "remetente": {
+        "id": 1,
+        "nome": "joaozinho"
+    },
+    "destinatario": {
+        "id": 2,
+        "nome": "mariazinha"
+    }
+}
+
+### API MENSAGEM PRIVADA DELETE
+
+DELETE http://localhost:8080/api/v1/mensagens/1
+
 ### API NOTIFICACAO GET
 
 GET http://localhost:8080/api/v1/notificacoes
@@ -103,6 +175,23 @@ Content-Type: application/json
         "nome": "joaozinho"
     }
 }
+
+### API NOTIFICACAO PUT
+
+PUT http://localhost:8080/api/v1/notificacoes/1
+Content-Type: application/json
+
+{
+    "mensagem": "Notificação atualizada!",
+    "usuario": {
+        "id": 1,
+        "nome": "joaozinho"
+    }
+}
+
+### API NOTIFICACAO DELETE
+
+DELETE http://localhost:8080/api/v1/notificacoes/1
 
 ### API AMIZADE GET
 
@@ -125,6 +214,26 @@ Content-Type: application/json
     "status": "ACEITO"
 }
 
+### API AMIZADE PUT
+
+PUT http://localhost:8080/api/v1/amizades/1
+Content-Type: application/json
+
+{
+    "usuario": {
+        "id": 1,
+        "nome": "joaozinho"
+    },
+    "amigo": {
+        "id": 2,
+        "nome": "mariazinha"
+    }
+}
+
+### API AMIZADE DELETE
+
+DELETE http://localhost:8080/api/v1/amizades/1
+
 ### API CONFIGURACOES GET
 
 GET http://localhost:8080/api/v1/configuracoes
@@ -138,3 +247,17 @@ Content-Type: application/json
     "temaEscuro": true,
     "notificacoesAtivas": false
 }
+
+### API CONFIGURACOES PUT
+
+PUT http://localhost:8080/api/v1/configuracoes/1
+Content-Type: application/json
+
+{
+    "temaEscuro": false,
+    "notificacoesAtivas": true
+}
+
+### API CONFIGURACOES DELETE
+
+DELETE http://localhost:8080/api/v1/configuracoes/1
