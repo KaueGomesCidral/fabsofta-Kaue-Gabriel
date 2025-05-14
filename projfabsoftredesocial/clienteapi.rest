@@ -21,7 +21,7 @@ Content-Type: application/json
 
 ### API USUARIO PUT
 
-PUT http://localhost:8080/api/v1/usuarios/3
+PUT http://localhost:8080/api/v1/usuarios/1
 Content-Type: application/json
 
 {
@@ -213,14 +213,13 @@ Content-Type: application/json
 
 {
     "usuario": {
-        "id": 1,
+        "id": 33,
         "nome": "joaozinho"
     },
     "amigo": {
-        "id": 2,
-        "nome": "mariazinha"
-    },
-    "status": "ACEITO"
+        "id": 34,
+        "nome": "joaozinho"
+    }
 }
 
 ### API AMIZADE PUT

@@ -14,10 +14,14 @@ public class Amizade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    private Usuario usuario;
 
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    private Usuario amigo;
 
     // Getters e Setters
-    
+
     public long getId() {
         return id;
     }
@@ -26,5 +30,19 @@ public class Amizade {
         this.id = id;
     }
 
-    
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Usuario getAmigo() {
+        return amigo;
+    }
+
+    public void setAmigo(Usuario amigo) {
+        this.amigo = amigo;
+    }
 }
