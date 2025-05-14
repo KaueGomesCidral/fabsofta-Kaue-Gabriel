@@ -20,10 +20,6 @@ public class MensagemPrivada {
     private LocalDateTime dataHora;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "remetente_id")
-    private Usuario remetente;
-
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "destinatario_id")
     private Usuario destinatario;
 
@@ -53,14 +49,6 @@ public class MensagemPrivada {
         this.dataHora = dataHora;
     }
 
-    public Usuario getRemetente() {
-        return remetente;
-    }
-
-    public void setRemetente(Usuario remetente) {
-        this.remetente = remetente;
-    }
-
     public Usuario getDestinatario() {
         return destinatario;
     }
@@ -70,8 +58,7 @@ public class MensagemPrivada {
     }
 
     public Object getTexto() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getTexto'");
+        return null;
     }
 
     

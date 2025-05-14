@@ -52,9 +52,6 @@ public class AmizadeController {
             return ResponseEntity.notFound().build();
         }
 
-        amizadeAntiga.setUsuario(amizade.getUsuario());
-        amizadeAntiga.setAmigo(amizade.getAmigo());
-
         service.save(amizadeAntiga);
         return new ResponseEntity<>(amizadeAntiga, HttpStatus.OK);
     }

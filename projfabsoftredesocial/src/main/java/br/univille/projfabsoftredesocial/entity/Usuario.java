@@ -25,8 +25,7 @@ public class Usuario {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNascimento;
 
-    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
-    private List<Postagem> postagens;
+
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Amizade> amigos;
@@ -112,14 +111,6 @@ public class Usuario {
 
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-    public List<Postagem> getPostagens() {
-        return postagens;
-    }
-
-    public void setPostagens(List<Postagem> postagens) {
-        this.postagens = postagens;
     }
 
     public List<Amizade> getAmigos() {

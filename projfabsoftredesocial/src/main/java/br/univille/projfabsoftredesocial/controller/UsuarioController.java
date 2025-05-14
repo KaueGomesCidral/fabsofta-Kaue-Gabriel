@@ -62,7 +62,6 @@ public class UsuarioController {
         usuarioAntigo.setBio(usuario.getBio());
         usuarioAntigo.setAtletica(usuario.getAtletica());
         usuarioAntigo.setDataNascimento(usuario.getDataNascimento());
-        usuarioAntigo.setPostagens(usuario.getPostagens());
         usuarioAntigo.setAmigos(usuario.getAmigos());
 
         service.save(usuarioAntigo);

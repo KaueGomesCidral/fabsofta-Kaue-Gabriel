@@ -52,7 +52,6 @@ public class MensagemPrivadaController {
             return ResponseEntity.notFound().build();
         }
 
-        mensagemAntiga.setRemetente(mensagem.getRemetente());
         mensagemAntiga.setDestinatario(mensagem.getDestinatario());
 
         service.save(mensagemAntiga);

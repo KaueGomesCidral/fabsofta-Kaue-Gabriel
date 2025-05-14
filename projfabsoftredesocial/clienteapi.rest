@@ -21,10 +21,19 @@ Content-Type: application/json
 
 ### API USUARIO PUT
 
-PUT http://localhost:8080/api/v1/usuarios Content-Type: application/json
+PUT http://localhost:8080/api/v1/usuarios/3
+Content-Type: application/json
 
 {
-"nome": "zezinho da gama", "curso": "sistemas", "semestreTurma": "5an", "telefone": "88888903", "email": "ze@gmail.com", "senha": "ze123", "bio": "oi", "atletica": "atenum", "dataNascimento": "2000-04-22"
+    "nome": "zezinho da gama",
+    "curso": "sistemas",
+    "semestreTurma": "5an",
+    "telefone": "88888903",
+    "email": "ze@gmail.com",
+    "senha": "ze123",
+    "bio": "oi",
+    "atletica": "atenum",
+    "dataNascimento": "2000-04-22"
 }
 
 ### API USUARIO DELETE
@@ -59,7 +68,7 @@ Content-Type: application/json
 
 ### API POSTAGEM PUT
 
-PUT http://localhost:8080/api/v1/postagens/1
+PUT http://localhost:8080/api/v1/postagens/2
 Content-Type: application/json
 
 {
@@ -73,7 +82,7 @@ Content-Type: application/json
 
 ### API POSTAGEM DELETE
 
-DELETE http://localhost:8080/api/v1/postagens/1
+DELETE http://localhost:8080/api/v1/postagens/2
 
 ### API COMENTARIO GET
 
@@ -140,7 +149,7 @@ Content-Type: application/json
 
 ### API MENSAGEM PRIVADA PUT
 
-PUT http://localhost:8080/api/v1/mensagens/1
+PUT http://localhost:8080/api/v1/mensagens/2
 Content-Type: application/json
 
 {
@@ -157,7 +166,7 @@ Content-Type: application/json
 
 ### API MENSAGEM PRIVADA DELETE
 
-DELETE http://localhost:8080/api/v1/mensagens/1
+DELETE http://localhost:8080/api/v1/mensagens/2
 
 ### API NOTIFICACAO GET
 
@@ -216,7 +225,7 @@ Content-Type: application/json
 
 ### API AMIZADE PUT
 
-PUT http://localhost:8080/api/v1/amizades/1
+PUT http://localhost:8080/api/v1/amizades/3
 Content-Type: application/json
 
 {
@@ -232,7 +241,7 @@ Content-Type: application/json
 
 ### API AMIZADE DELETE
 
-DELETE http://localhost:8080/api/v1/amizades/1
+DELETE http://localhost:8080/api/v1/amizades/3
 
 ### API CONFIGURACOES GET
 
