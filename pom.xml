@@ -10,7 +10,11 @@
     <name>Multi Project: FSO 2025 1 A</name>
 
     <modules>
+
         <module>projfabsoftredesocial</module>
+
+        <module>revisao_gabriel</module>
+
     </modules>
 
 </project>
