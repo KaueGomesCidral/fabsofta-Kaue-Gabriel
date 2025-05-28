@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { Usuario } from '../model/usuario';
 import { HttpClient } from '@angular/common/http';
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService {
-  apiURL = "https://localhost:8080/api/v1/usuarios"
+export class ClienteService {
+  apiURL = "http://localhost:8080/api/v1/clientes";
+
   constructor(private http:HttpClient) { }
 
-  getUsuario(){
-    return this.http.get<Usuario[]>(this.apiURL);
+  getClientes(){
+     return this.http.get<Usuario[]>(this.apiURL);
   }
 }
