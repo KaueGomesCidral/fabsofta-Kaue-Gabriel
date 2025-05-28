@@ -1,12 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Conta } from '../model/usuario';
+import { ContaService } from '../service/usuario.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  selector: 'app-conta',
+  imports: [CommonModule, HttpClientModule],
+  templateUrl: './conta.component.html',
+  styleUrl: './conta.component.css'
 })
-export class AppComponent {
-  title = 'projfabsoft_frontend';
+export class ContaComponent {
+  public listaContas: Conta[] = [];
+  constructor(
+    private contaService:ContaService
+  ) {}
+  ngOnInit(): void {
+    this.contaService.getConta().subscribe( resposta => {
+      this.listaContas = resposta;
+    })
+  }
 }
