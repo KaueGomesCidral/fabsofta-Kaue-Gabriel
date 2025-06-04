@@ -8,4 +8,6 @@ export class Usuario {
     bio: string;
     atletica: string;
     dataNascimento: Date;
+    telefone: string;
+    endereco: string;
 }

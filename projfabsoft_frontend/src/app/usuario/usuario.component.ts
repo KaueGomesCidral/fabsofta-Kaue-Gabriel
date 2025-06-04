@@ -1,27 +1,28 @@
 import { Component } from '@angular/core';
 import { Usuario } from '../model/usuario';
-import { ClienteService } from '../service/usuario.service';
+import { UsuarioService } from '../service/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cliente',
-  imports: [HttpClientModule, CommonModule],
+  imports: [HttpClientModule, CommonModule, RouterLink],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css',
-  providers: [ClienteService]
+  providers: [UsuarioService]
 })
 export class ClienteComponent {
 
-    public listaClientes:Usuario[] = [];
+    public listaUsuarios:Usuario[] = [];
     
     constructor(
-      private clienteService:ClienteService
+      private usuarioService:UsuarioService
     ){}
 
     ngOnInit(): void {
-      this.clienteService.getClientes().subscribe(resposta => {
-          this.listaClientes = resposta;
+      this.usuarioService.getUsuarios().subscribe(resposta => {
+          this.listaUsuarios = resposta;
       })
     }
 }

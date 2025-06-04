@@ -1,14 +1,24 @@
-<main class="contai">
-    <h2>Usuarios</h2>
-    <table class="table">
-        <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Endereço</th>
-              <th>Telefone</th>
-              <th>E-mail</th>
-              <th>Data Nascimento</th>
-            </tr>
-          </thead>
-    </table>
+<main class="container">
+  <h2>Usuarios</h2>
+  <a routerLink="/usuarios/novo" class="btn btn-dark">Novo</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Telefone</th>
+        <th>E-mail</th>
+        <th>Data Nascimento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let umUsuario of listaUsuarios">
+        <td>{{umUsuario.nome}}</td>
+        <td>{{umUsuario.endereco}}</td>
+        <td>{{umUsuario.telefone}}</td>
+        <td>{{umUsuario.email}}</td>
+        <td>{{umUsuario.dataNascimento}}</td>
+      </tr>
+    </tbody>
+  </table>
 </main>
