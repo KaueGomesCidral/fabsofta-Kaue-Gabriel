@@ -5,5 +5,5 @@
     "plantuml.exportOutDir": "./diagramas/png",
     "plantuml.exportFormat": "png",
     "plantuml.exportSubFolder": false,
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
