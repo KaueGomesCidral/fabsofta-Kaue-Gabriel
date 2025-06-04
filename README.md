@@ -35,8 +35,11 @@ Como um usuário, eu gostaria de modificar minhas configurações como tema (cla
 Como um usuário, eu gostaria de adicionar informações relacionadas ao perfil nas configurações como: Bio, atlética.
 Como um usuáio, eu gostaria de remover postagens que eu criei.
 Como um usuário, eu gostaria de remover comentários que eu fiz em publicações.
+
 Como um usuário, eu gostaria de visualizar as pessoas que me seguem
 Como um usuário, eu gostaria de visualizar as pessoas que eu sigo
+
+
 ## Comandos do Git
 
 ### Instalação
@@ -91,9 +94,13 @@ git checkout -b branch-seunome
 
 ### setas não esqueça
 
+
 se for uma seta aberta ou pintada com risco cheio é variável
 
 ### MVC
 Model = Dados
 View = Telas / codigo para desenhar tela
 Controller = Controla os eventos
+
+se for uma seta aberta ou pintada com risco cheio é variável
+
