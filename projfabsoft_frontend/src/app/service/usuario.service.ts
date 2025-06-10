@@ -6,12 +6,15 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ClienteService {
-  apiURL = "http://localhost:8080/api/v1/clientes";
+export class UsuarioService {
+  apiURL = "http://localhost:8080/api/v1/usuarios";
 
   constructor(private http:HttpClient) { }
 
-  getClientes(){
+  getUsuarios(){
      return this.http.get<Usuario[]>(this.apiURL);
+  }
+  saveUsuario(usuario:Usuario){
+    return this.http.post(this.apiURL,usuario);
   }
 }
