@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component,ElementRef, ViewChild } from '@angular/core';
 import { Usuario } from '../model/usuario';
 import { UsuarioService } from '../service/usuario.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-cliente',
@@ -16,6 +17,11 @@ import { Router } from '@angular/router';
 export class ClienteComponent {
 
     public listaUsuarios:Usuario[] = [];
+
+    @ViewChild('myModal') modalElement!: ElementRef;
+    private modal!: bootstrap.Modal;
+
+    private usuarioSelecionado!: Usuario;
     
     constructor(
       private usuarioService:UsuarioService,
@@ -33,4 +39,31 @@ export class ClienteComponent {
     alterar(usuario:Usuario){
       this.router.navigate(['usuarios/alterar', usuario.id])
     }
+
+
+    abrirConfirmacao(usuario:Usuario) {
+      this.usuarioSelecionado = usuario;
+      this.modal = new bootstrap.Modal(this.modalElement.nativeElement);
+      this.modal.show();
+    }
+  
+    fecharConfirmacao() {
+      this.modal.hide();
+    }
+
+    confirmarExclusao() {
+      this.usuarioService.excluirUsuario(this.usuarioSelecionado.id).subscribe(
+          () => {
+              this.fecharConfirmacao();
+              this.usuarioService.getUsuarios().subscribe(
+                usuarios => {
+                  this.listaUsuarios = usuarios;
+                }
+              );
+          },
+          error => {
+              console.error('Erro ao excluir usuario:', error);
+          }
+      );
+  }
 }

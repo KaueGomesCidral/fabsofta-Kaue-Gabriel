@@ -24,4 +24,7 @@ export class UsuarioService {
   getUsuarioById(id: any) {
     return this.http.get<Usuario>(this.apiURL + '/' + id);
   }
+  excluirUsuario(id: any){
+    return this.http.delete<Usuario>(this.apiURL + '/' + id);
+  }
 }
