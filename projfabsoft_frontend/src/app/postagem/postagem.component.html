@@ -68,26 +68,14 @@
 
   <div class="container">
     <h2>Escreva um post</h2>
-    <textarea id="postText" placeholder="O que você está pensando?"></textarea>
-    <button onclick="publicarPost()">Publicar</button>
+    <textarea [(ngModel)]="textoPostagem" placeholder="O que você está pensando?"></textarea>
+    <button (click)="publicarPost()">Publicar</button>
 
-    <div id="postsContainer"></div>
+    <div *ngFor="let postagem of listaPostagens" class="post">
+      <p>{{ postagem.texto }}</p>
+      <small>Autor ID: {{ postagem.autorId }}</small>
+    </div>
   </div>
-
-  <script>
-    function publicarPost() {
-      const postText = document.getElementById("postText").value.trim();
-      if (postText === "") return;
-
-      const postDiv = document.createElement("div");
-      postDiv.className = "post";
-      postDiv.textContent = postText;
-
-      const container = document.getElementById("postsContainer");
-      container.prepend(postDiv); // adiciona no topo
-      document.getElementById("postText").value = ""; // limpa o campo
-    }
-  </script>
 
 </body>
 </html>
