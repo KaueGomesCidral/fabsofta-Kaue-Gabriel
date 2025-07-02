@@ -21,6 +21,12 @@ public class Postagem {
     @ElementCollection
     private List<Long> curtidas;
 
+     @Transient
+    private String foto;
+    
+    private String arquivoFoto;
+    private String mimeType;
+
 
      // Getters e Setters
      
@@ -64,6 +70,30 @@ public class Postagem {
         this.curtidas = curtidas;
     }
 
+       
+    public String getMimeType() {
+        return mimeType;
+    }
+
+    public void setMimeType(String mimeType) {
+        this.mimeType = mimeType;
+    }
+
+    public String getArquivoFoto() {
+        return arquivoFoto;
+    }
+
+    public void setArquivoFoto(String arquivoFoto) {
+        this.arquivoFoto = arquivoFoto;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
    
     
 }

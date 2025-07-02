@@ -1,0 +1,37 @@
+<main class="container">
+    <h2>Postagem</h2>
+    <div class="card">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="txtTexto">Texto</label>
+                <input type="text" [(ngModel)]="postagem.textpo" 
+                class="form-control" id="txtNome">
+            </div>
+
+            <div class="form-group">
+                <label for="txtAutor">Autor</label>
+                <input type="text" [(ngModel)]="postagem.autorId 
+                class="form-control" id="txtModelo">
+            </div>
+            
+            <div class="form-group">
+                <label for="fileImagem">Imagem</label>
+                <input type="file" (change)="onFileSelected($event)" class="form-control" id="fileImagem" accept="image/*">
+            </div>
+            
+
+            <div class="form-group">
+                <label for="txtUsuario">Usuario</label>
+                <select id="txtUsuario" [(ngModel)]="postagemusuario" class="form-select" [compareWith]="comparaUsuarios">
+                    <option *ngFor="let umUsuario of listaUsuarios" [ngValue]="umUsuario">{{ umUsuario.nome }}</option>
+                </select>
+            </div>
+
+            
+        </div>
+
+        <button (click)="salvar()"
+            class="btn btn-primary">Salvar</button>
+
+    </div>
+</main>

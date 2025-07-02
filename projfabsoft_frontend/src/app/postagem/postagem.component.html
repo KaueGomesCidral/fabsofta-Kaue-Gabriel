@@ -74,6 +74,9 @@
     <div *ngFor="let postagem of listaPostagens" class="post">
       <p>{{ postagem.texto }}</p>
       <small>Autor ID: {{ postagem.autorId }}</small>
+      <tr *ngFor="let umPostagem of listaPostagens">
+          <td><img src="data:{{umPostagem.mimeType}};base64,{{umPostagem.foto}}" width="200px;"></td>        
+      </tr>
     </div>
   </div>
 
