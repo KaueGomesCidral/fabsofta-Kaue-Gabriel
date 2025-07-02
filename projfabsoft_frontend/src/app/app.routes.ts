@@ -8,4 +8,5 @@ export const routes: Routes = [
   { path: 'usuarios/novo', component: FormUsuarioComponent },
   { path: 'usuarios/alterar/:id', component: FormUsuarioComponent },
   { path: 'postagens', component: PostagemComponent },
+  { path: '', component: PostagemComponent }
 ];
