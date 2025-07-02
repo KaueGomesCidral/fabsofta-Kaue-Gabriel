@@ -11,9 +11,14 @@ public class Postagem {
 
     private String texto;
 
+
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "autor_id")
     private Usuario autor;
+
+    @Lob
+    @Column(length = 10485760) // até 10MB
+    private String imagemBase64;
 
     @OneToMany(mappedBy = "postagem", cascade = CascadeType.ALL)
     private List<Comentario> comentarios;
@@ -64,6 +69,11 @@ public class Postagem {
         this.curtidas = curtidas;
     }
 
-   
-    
+    public String getImagemBase64() {
+        return imagemBase64;
+    }
+
+    public void setImagemBase64(String imagemBase64) {
+        this.imagemBase64 = imagemBase64;
+    }
 }
