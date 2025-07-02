@@ -5,10 +5,10 @@ import { PostagemComponent } from './postagem/postagem.component';
 import { ChatComponent } from './chat/chat.component';
 
 export const routes: Routes = [
+  { path: '', component: ClienteComponent },
   { path: 'usuarios', component: ClienteComponent },
   { path: 'usuarios/novo', component: FormUsuarioComponent },
   { path: 'usuarios/alterar/:id', component: FormUsuarioComponent },
   { path: 'postagens', component: PostagemComponent },
-  { path: 'chat', component: ChatComponent },
-  { path: '', component: PostagemComponent }
+  { path: 'chat', component: ChatComponent }
 ];

@@ -1,5 +1,11 @@
 <div class="container">
   <h2>Escreva um post</h2>
+  <div style="margin-bottom: 10px;">
+    <label for="usuarioSelect"><b>Escolha o usuário:</b></label>
+    <select id="usuarioSelect" [(ngModel)]="usuarioSelecionado" [ngModelOptions]="{standalone: true}">
+      <option *ngFor="let usuario of usuarios" [ngValue]="usuario">{{ usuario.nome }}</option>
+    </select>
+  </div>
   <textarea [(ngModel)]="textoPostagem" placeholder="O que você está pensando?"></textarea>
   <button (click)="publicarPost()">Publicar</button>
 

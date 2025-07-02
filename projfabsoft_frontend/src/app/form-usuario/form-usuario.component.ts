@@ -33,7 +33,7 @@ export class FormUsuarioComponent {
   salvar(){
     this.usuarioService.saveUsuario(this.usuario)
       .subscribe( res => {
-        this.router.navigate(['usuarios'])
+        this.router.navigate(['postagens'])
       });
   }
 
