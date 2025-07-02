@@ -1,0 +1,37 @@
+.usuario-detalhe-container {
+  background: #23272f;
+  color: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 32px auto;
+  box-shadow: 0 2px 8px #0005;
+}
+.usuario-detalhe-container label {
+  display: block;
+  margin-bottom: 8px;
+}
+.usuario-detalhe-container input {
+  margin-left: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  border: 1px solid #888;
+  padding: 4px 8px;
+}
+.usuario-detalhe-container button {
+  margin-right: 8px;
+  margin-top: 8px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  border: none;
+  background: #3b82f6;
+  color: #fff;
+  cursor: pointer;
+}
+.usuario-detalhe-container button:last-child {
+  background: #e11d48;
+}
+.mensagem-sucesso {
+  color: #22c55e;
+  margin-top: 10px;
+}

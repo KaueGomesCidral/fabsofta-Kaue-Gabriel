@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Postagem } from '../model/postagem';
+import { Postagem, Comentario } from '../model/postagem';
 import { PostagemService } from '../service/postagem.service';
 import { Usuario } from '../model/usuario';
 import { UsuarioService } from '../service/usuario.service';
@@ -18,6 +18,8 @@ export class PostagemComponent {
   textoPostagem: string = '';
   usuarios: Usuario[] = [];
   usuarioSelecionado: Usuario | null = null;
+  comentariosAbertos: { [key: number]: boolean } = {};
+  novoComentario: { [key: number]: string } = {};
 
   constructor(
     private postagemService: PostagemService,
@@ -46,11 +48,49 @@ export class PostagemComponent {
       texto: this.textoPostagem,
       autor: { id: this.usuarioSelecionado.id, nome: this.usuarioSelecionado.nome },
       curtidas: [],
+      comentarios: []
     };
-
     this.postagemService.savePostagem(novaPostagem).subscribe((resposta) => {
       this.listaPostagens.unshift(resposta);
       this.textoPostagem = '';
     });
+  }
+
+  toggleComentarios(postagem: Postagem) {
+    this.comentariosAbertos[postagem.id] = !this.comentariosAbertos[postagem.id];
+  }
+
+  adicionarComentario(postagem: Postagem) {
+    if (!this.usuarioSelecionado) return;
+    const texto = this.novoComentario[postagem.id]?.trim();
+    if (!texto) return;
+    const comentario: Comentario = {
+      usuario: { id: this.usuarioSelecionado.id, nome: this.usuarioSelecionado.nome },
+      texto
+    };
+    postagem.comentarios = postagem.comentarios || [];
+    postagem.comentarios.push(comentario);
+    this.postagemService.savePostagem(postagem).subscribe((res) => {
+      postagem.comentarios = res.comentarios;
+      this.novoComentario[postagem.id] = '';
+    });
+  }
+  toggleLike(postagem: Postagem): void {
+    if (!this.usuarioSelecionado) return;
+    const userId = this.usuarioSelecionado.id;
+    const index = postagem.curtidas.indexOf(userId);
+    if (index === -1) {
+      postagem.curtidas.push(userId);
+    } else {
+      postagem.curtidas.splice(index, 1);
+    }
+    this.postagemService.savePostagem(postagem).subscribe((res) => {
+      postagem.curtidas = res.curtidas;
+    });
+  }
+  
+  isLikedByUser(postagem: Postagem): boolean {
+    if (!this.usuarioSelecionado) return false;
+    return postagem.curtidas.includes(this.usuarioSelecionado.id);
   }
 }

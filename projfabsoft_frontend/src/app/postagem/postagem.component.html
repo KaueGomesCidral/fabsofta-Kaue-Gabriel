@@ -1,16 +1,37 @@
-<div class="container">
-  <h2>Escreva um post</h2>
-  <div style="margin-bottom: 10px;">
-    <label for="usuarioSelect"><b>Escolha o usuário:</b></label>
-    <select id="usuarioSelect" [(ngModel)]="usuarioSelecionado" [ngModelOptions]="{standalone: true}">
-      <option *ngFor="let usuario of usuarios" [ngValue]="usuario">{{ usuario.nome }}</option>
-    </select>
-  </div>
-  <textarea [(ngModel)]="textoPostagem" placeholder="O que você está pensando?"></textarea>
-  <button (click)="publicarPost()">Publicar</button>
+<div class="layout">
+  <main class="main-content">
+    <h2>Escreva um post</h2>
+    <div class="form-postagem">
+      <label for="usuarioSelect"><b>Escolha o usuário:</b></label>
+      <select id="usuarioSelect" [(ngModel)]="usuarioSelecionado" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let usuario of usuarios" [ngValue]="usuario">{{ usuario.nome }}</option>
+      </select>
 
-  <div *ngFor="let postagem of listaPostagens" class="post">
-    <p>{{ postagem.texto }}</p>
-    <small>Autor: {{ postagem.autor?.nome }}</small>
-  </div>
+      <textarea [(ngModel)]="textoPostagem" placeholder="O que você está pensando?"></textarea>
+      <button (click)="publicarPost()">Publicar</button>
+    </div>
+
+    <div *ngFor="let postagem of listaPostagens" class="post">
+      <p><strong>{{ postagem.autor?.nome }}</strong></p>
+      <p><strong>Mensagem:</strong> {{ postagem.texto }}</p>
+      <button (click)="toggleLike(postagem)">
+        <span *ngIf="isLikedByUser(postagem)">💚 Descurtir</span>
+        <span *ngIf="!isLikedByUser(postagem)">🤍 Curtir</span>
+      </button>
+      <span>{{ postagem.curtidas.length }} curtida{{ postagem.curtidas.length === 1 ? '' : 's' }}</span>
+      <button (click)="toggleComentarios(postagem)">Comentários</button>
+      <div *ngIf="comentariosAbertos[postagem.id]" class="comentarios-area">
+        <div *ngIf="postagem.comentarios?.length; else semComentarios">
+          <div *ngFor="let comentario of postagem.comentarios">
+            <b>{{ comentario.usuario?.nome || 'Anônimo' }}:</b> {{ comentario.texto }}
+          </div>
+        </div>
+        <ng-template #semComentarios><i>Sem comentários ainda.</i></ng-template>
+        <div class="novo-comentario">
+          <input [(ngModel)]="novoComentario[postagem.id]" placeholder="Digite um comentário..." [ngModelOptions]="{standalone: true}" />
+          <button (click)="adicionarComentario(postagem)">Comentar</button>
+        </div>
+      </div>
+    </div>
+  </main>
 </div>

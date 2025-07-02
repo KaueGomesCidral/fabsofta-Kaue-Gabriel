@@ -9,10 +9,11 @@ import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-cliente',
-  imports: [HttpClientModule, CommonModule],
+  standalone: true,
+  imports: [HttpClientModule, CommonModule, RouterLink],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css',
-  providers: [UsuarioService, Router]
+  providers: [UsuarioService]
 })
 export class ClienteComponent {
 

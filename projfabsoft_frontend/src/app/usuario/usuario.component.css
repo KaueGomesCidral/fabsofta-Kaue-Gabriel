@@ -1,0 +1,41 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #121212; 
+  font-family: Arial, sans-serif;
+}
+
+.welcome-container {
+  min-height: calc(100vh - 60px); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  background-color: #121212;
+}
+
+.welcome-container h1 {
+  font-size: 2.5rem;
+  color: #00b894;
+  margin-bottom: 18px;
+}
+
+.welcome-container p {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 32px;
+}
+
+.welcome-container button {
+  background-color: #00b894;
+  color: white;
+  padding: 14px 38px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

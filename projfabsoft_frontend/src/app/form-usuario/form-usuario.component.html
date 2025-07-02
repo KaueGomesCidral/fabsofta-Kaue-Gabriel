@@ -1,30 +1,85 @@
-<main class="container" style="max-width: 500px; margin: 60px auto 0 auto;">
-    <h2 style="text-align:center; color:#1877f2; margin-bottom: 24px;">Cadastro de Usuário</h2>
-    <div class="card" style="box-shadow: 0 2px 12px rgba(24,119,242,0.08); border-radius: 16px;">
-        <div class="card-body">
-            <form (ngSubmit)="salvar()" autocomplete="off">
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label for="txtNome">Nome</label>
-                    <input type="text" [(ngModel)]="usuario.nome" name="nome" class="form-control" id="txtNome" required>
-                </div>
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label for="txtEndereco">Endereço</label>
-                    <input type="text" [(ngModel)]="usuario.endereco" name="endereco" class="form-control" id="txtEndereco">
-                </div>
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label for="txtTelefone">Telefone</label>
-                    <input type="text" [(ngModel)]="usuario.telefone" name="telefone" class="form-control" id="txtTelefone">
-                </div>
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label for="txtemail">E-mail</label>
-                    <input type="email" [(ngModel)]="usuario.email" name="email" class="form-control" id="txtemail" required>
-                </div>
-                <div class="form-group" style="margin-bottom: 16px;">
-                    <label for="dataNas">Data de Nascimento</label>
-                    <input type="date" [(ngModel)]="usuario.dataNascimento" name="dataNascimento" class="form-control" id="dataNas" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block" style="width:100%; padding:12px; font-size:1.1rem;">Cadastrar</button>
-            </form>
-        </div>
-    </div>
+<main class="cadastro-container">
+  <h2>Cadastro de Usuário</h2>
+  <div class="cadastro-card">
+    <form (ngSubmit)="salvar()" autocomplete="off" #formUsuario="ngForm">
+      
+      <div class="form-field">
+        <label for="txtNome">Nome</label>
+        <input 
+          type="text" 
+          [(ngModel)]="usuario.nome" 
+          name="nome" 
+          id="txtNome" 
+          required
+          #nome="ngModel"
+        />
+        <span *ngIf="nome.invalid && nome.touched" style="color:red; font-size:0.85rem;">
+          Nome é obrigatório.
+        </span>
+      </div>
+
+      <div class="form-field">
+        <label for="txtEndereco">Endereço</label>
+        <input 
+          type="text" 
+          [(ngModel)]="usuario.endereco" 
+          name="endereco" 
+          id="txtEndereco"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="txtTelefone">Telefone</label>
+        <input 
+          type="text"
+          [(ngModel)]="usuario.telefone"
+          name="telefone"
+          id="txtTelefone"
+          (input)="formatarTelefone()"
+          (keydown)="somenteNumeros($event)"
+          maxlength="15"
+          required
+          inputmode="numeric"
+          #telefone="ngModel"
+        />
+        <span *ngIf="(telefoneInvalido || (telefone.invalid && telefone.touched))" 
+              style="color:red; font-size: 0.85rem;">
+          Telefone inválido
+        </span>
+      </div>
+
+      <div class="form-field">
+        <label for="txtemail">E-mail</label>
+        <input 
+          type="email" 
+          [(ngModel)]="usuario.email" 
+          name="email" 
+          id="txtemail" 
+          required
+          #email="ngModel"
+        />
+        <span *ngIf="(emailInvalido || (email.invalid && email.touched))" 
+              style="color:red; font-size: 0.85rem;">
+          E-mail inválido
+        </span>
+      </div>
+
+      <div class="form-field">
+        <label for="dataNas">Data de Nascimento</label>
+        <input 
+          type="date" 
+          [(ngModel)]="usuario.dataNascimento" 
+          name="dataNascimento" 
+          id="dataNas" 
+          required
+          #dataNas="ngModel"
+        />
+        <span *ngIf="dataNas.invalid && dataNas.touched" style="color:red; font-size:0.85rem;">
+          Data de nascimento é obrigatória.
+        </span>
+      </div>
+
+      <button type="submit" [disabled]="formUsuario.invalid">Cadastrar</button>
+    </form>
+  </div>
 </main>

@@ -21,7 +21,6 @@ export class ChatComponent implements OnInit {
     constructor(private chatService: ChatService) {}
 
     ngOnInit(): void {
-        // Conecta ao WebSocket e registra o callback para receber mensagens
         this.chatService.connect();
         this.chatService.onMessage((msg: string) => {
             this.receberMensagem(msg);
@@ -34,7 +33,6 @@ export class ChatComponent implements OnInit {
         mensagem.querySelector('.msg').textContent = this.textoMensagem;
         this.chatContainer.nativeElement.appendChild(mensagem);
 
-        // Envia a mensagem pelo serviço do chat
         this.chatService.sendMessage(this.textoMensagem);
 
         this.textoMensagem = '';
