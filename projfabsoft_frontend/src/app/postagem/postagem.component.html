@@ -73,7 +73,7 @@
 
     <div *ngFor="let postagem of listaPostagens" class="post">
       <p>{{ postagem.texto }}</p>
-      <small>Autor ID: {{ postagem.autorId }}</small>
+      <small>Autor: {{ postagem.autor?.nome }}</small>
     </div>
   </div>
 

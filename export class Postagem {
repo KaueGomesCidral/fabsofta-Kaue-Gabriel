@@ -1,6 +1,6 @@
 export class Postagem {
     id: number;
     texto: string;
-    autor: { id: number, nome: string };
+    autor: { id: number, nome: string }; // Adicione esta linha
     curtidas: number[];
 }

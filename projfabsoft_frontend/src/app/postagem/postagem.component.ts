@@ -29,15 +29,15 @@ export class PostagemComponent {
     }
 
     const novaPostagem: Postagem = {
-      id: 0, 
+      id: 0,
       texto: this.textoPostagem,
-      autorId: 2,
+      autor: { id: 3, nome: 'KaueGames2004' }, // Substitua pelo nome do usuário logado
       curtidas: [],
     };
 
     this.postagemService.savePostagem(novaPostagem).subscribe((resposta) => {
-      this.listaPostagens.unshift(resposta); // Adiciona a nova postagem no topo da lista
-      this.textoPostagem = ''; // Limpa o campo de texto
+      this.listaPostagens.unshift(resposta);
+      this.textoPostagem = '';
     });
   }
 }
