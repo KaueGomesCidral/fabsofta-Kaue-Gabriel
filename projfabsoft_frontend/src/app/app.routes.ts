@@ -2,11 +2,13 @@ import { Routes } from '@angular/router';
 import { ClienteComponent } from './usuario/usuario.component';
 import { FormUsuarioComponent } from './form-usuario/form-usuario.component';
 import { PostagemComponent } from './postagem/postagem.component';
+import { ChatComponent } from './chat/chat.component';
 
 export const routes: Routes = [
   { path: 'usuarios', component: ClienteComponent },
   { path: 'usuarios/novo', component: FormUsuarioComponent },
   { path: 'usuarios/alterar/:id', component: FormUsuarioComponent },
   { path: 'postagens', component: PostagemComponent },
+  { path: 'chat', component: ChatComponent },
   { path: '', component: PostagemComponent }
 ];

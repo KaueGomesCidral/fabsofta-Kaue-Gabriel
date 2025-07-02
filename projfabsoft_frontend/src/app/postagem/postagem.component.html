@@ -1,21 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Mini Rede Social</title>
-</head>
-<body>
+<div class="container">
+  <h2>Escreva um post</h2>
+  <textarea [(ngModel)]="textoPostagem" placeholder="O que você está pensando?"></textarea>
+  <button (click)="publicarPost()">Publicar</button>
 
-  <div class="container">
-    <h2>Escreva um post</h2>
-    <textarea [(ngModel)]="textoPostagem" placeholder="O que você está pensando?"></textarea>
-    <button (click)="publicarPost()">Publicar</button>
-
-    <div *ngFor="let postagem of listaPostagens" class="post">
-      <p>{{ postagem.texto }}</p>
-      <small>Autor: {{ postagem.autor?.nome }}</small>
-    </div>
+  <div *ngFor="let postagem of listaPostagens" class="post">
+    <p>{{ postagem.texto }}</p>
+    <small>Autor: {{ postagem.autor?.nome }}</small>
   </div>
-
-</body>
-</html>
+</div>
