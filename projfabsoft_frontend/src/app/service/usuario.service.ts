@@ -25,7 +25,6 @@ export class UsuarioService {
     return this.http.get<Usuario>(this.apiURL + '/' + id);
   }
   excluirUsuario(id: any){
-    // Chama o endpoint seguro de exclusão
     return this.http.delete(this.apiURL + '/' + id + '/deleteAll');
   }
 }

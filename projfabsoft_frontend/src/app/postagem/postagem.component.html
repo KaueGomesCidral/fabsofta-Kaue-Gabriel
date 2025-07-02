@@ -1,29 +1,44 @@
 <div class="layout">
   <main class="main-content">
-    <h2>Escreva um post</h2>
-    <div class="form-postagem">
-      <label for="usuarioSelect"><b>Escolha o usuário:</b></label>
-      <select id="usuarioSelect" [(ngModel)]="usuarioSelecionado" [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let usuario of usuarios" [ngValue]="usuario">{{ usuario.nome }}</option>
-      </select>
-
-      <textarea [(ngModel)]="textoPostagem" placeholder="O que você está pensando?"></textarea>
-      <button (click)="publicarPost()">Publicar</button>
+    <div class="form-postagem-card">
+      <h2 class="form-title">Escreva um post</h2>
+      <div class="form-row">
+        <label for="usuarioSelect" class="form-label">Usuário:</label>
+        <div class="custom-select-wrapper">
+          <select id="usuarioSelect" [(ngModel)]="usuarioSelecionado" [ngModelOptions]="{standalone: true}" class="custom-select">
+            <option value="" disabled selected hidden>Selecione um usuário</option>
+            <option *ngFor="let usuario of usuarios" [ngValue]="usuario">{{ usuario.nome }}</option>
+          </select>
+        </div>
+      </div>
+      <textarea [(ngModel)]="textoPostagem" placeholder="O que você está pensando?" class="form-textarea"></textarea>
+      <button class="form-publicar-btn" (click)="publicarPost()">Publicar</button>
     </div>
 
-    <div *ngFor="let postagem of listaPostagens" class="post">
-      <p><strong>{{ postagem.autor?.nome }}</strong></p>
-      <p><strong>Mensagem:</strong> {{ postagem.texto }}</p>
-      <button (click)="toggleLike(postagem)">
-        <span *ngIf="isLikedByUser(postagem)">💚 Descurtir</span>
-        <span *ngIf="!isLikedByUser(postagem)">🤍 Curtir</span>
-      </button>
-      <span>{{ postagem.curtidas.length }} curtida{{ postagem.curtidas.length === 1 ? '' : 's' }}</span>
-      <button (click)="toggleComentarios(postagem)">Comentários</button>
+    <div *ngFor="let postagem of listaPostagens" class="post post-card">
+      <div class="post-header">
+        <div class="post-avatar">{{ postagem.autor && postagem.autor.nome ? postagem.autor.nome.charAt(0) : '?' }}</div>
+        <div>
+          <span class="post-author">{{ postagem.autor?.nome }}</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p class="post-text">{{ postagem.texto }}</p>
+      </div>
+      <div class="post-actions">
+        <button class="like-btn" (click)="toggleLike(postagem)">
+          <span *ngIf="isLikedByUser(postagem)">💚 Descurtir</span>
+          <span *ngIf="!isLikedByUser(postagem)">🤍 Curtir</span>
+        </button>
+        <span class="curtidas-count">{{ postagem.curtidas.length }} curtida{{ postagem.curtidas.length === 1 ? '' : 's' }}</span>
+        <button class="coment-btn" (click)="toggleComentarios(postagem)">💬 Comentários</button>
+      </div>
       <div *ngIf="comentariosAbertos[postagem.id]" class="comentarios-area">
         <div *ngIf="postagem.comentarios?.length; else semComentarios">
-          <div *ngFor="let comentario of postagem.comentarios">
-            <b>{{ comentario.usuario?.nome || 'Anônimo' }}:</b> {{ comentario.texto }}
+          <div *ngFor="let comentario of postagem.comentarios" class="comentario">
+            <span class="comentario-avatar">{{ comentario.usuario && comentario.usuario.nome ? comentario.usuario.nome.charAt(0) : 'A' }}</span>
+            <span class="comentario-nome">{{ comentario.usuario?.nome || 'Anônimo' }}</span>
+            <span class="comentario-texto">{{ comentario.texto }}</span>
           </div>
         </div>
         <ng-template #semComentarios><i>Sem comentários ainda.</i></ng-template>

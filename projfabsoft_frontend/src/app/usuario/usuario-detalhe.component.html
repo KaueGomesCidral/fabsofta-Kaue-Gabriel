@@ -1,35 +1,41 @@
-<div class="usuario-detalhe-container">
-  <h2>Detalhes do Usuário</h2>
-  <label>Selecionar usuário:
-    <select (change)="selecionarUsuario($event)" [value]="usuario?.id ?? ''">
-      <option *ngFor="let u of usuarios" [value]="u.id">{{ u.nome }}</option>
-    </select>
-  </label>
-  <div *ngIf="usuario">
-    <div *ngIf="!edicao">
-      <p><b>Nome:</b> {{ usuario.nome }}</p>
-      <p><b>Email:</b> {{ usuario.email }}</p>
-      <p><b>Curso:</b> {{ usuario.curso }}</p>
-      <p><b>Semestre/Turma:</b> {{ usuario.semestreTurma }}</p>
-      <p><b>Bio:</b> {{ usuario.bio }}</p>
-      <p><b>Atletica:</b> {{ usuario.atletica }}</p>
-      <p><b>Data de Nascimento:</b> {{ usuario.dataNascimento | date:'dd/MM/yyyy' }}</p>
-      <p><b>Telefone:</b> {{ usuario.telefone }}</p>
-      <button (click)="habilitarEdicao()">Editar</button>
-      <button (click)="excluir()">Excluir</button>
-      <div *ngIf="mensagem" class="mensagem-sucesso">{{ mensagem }}</div>
+<div class="usuario-detalhe-full-bg"></div>
+<div class="layout">
+  <main class="main-content">
+    <div class="usuario-detalhe-card">
+      <h2 class="usuario-detalhe-title">Detalhes do Usuário</h2>
+      <div class="usuario-detalhe-row">
+        <label for="usuarioSelect" class="usuario-detalhe-label">Selecionar usuário:</label>
+        <select id="usuarioSelect" (change)="selecionarUsuario($event)" [value]="usuario?.id ?? ''" class="usuario-detalhe-select">
+          <option *ngFor="let u of usuarios" [value]="u.id">{{ u.nome }}</option>
+        </select>
+      </div>
+      <div *ngIf="usuario">
+        <div *ngIf="!edicao">
+          <p><b>Nome:</b> {{ usuario.nome }}</p>
+          <p><b>Email:</b> {{ usuario.email }}</p>
+          <p><b>Curso:</b> {{ usuario.curso }}</p>
+          <p><b>Semestre/Turma:</b> {{ usuario.semestreTurma }}</p>
+          <p><b>Bio:</b> {{ usuario.bio }}</p>
+          <p><b>Atletica:</b> {{ usuario.atletica }}</p>
+          <p><b>Data de Nascimento:</b> {{ usuario.dataNascimento | date:'dd/MM/yyyy' }}</p>
+          <p><b>Telefone:</b> {{ usuario.telefone }}</p>
+          <button (click)="habilitarEdicao()">Editar</button>
+          <button (click)="excluir()">Excluir</button>
+          <div *ngIf="mensagem" class="mensagem-sucesso">{{ mensagem }}</div>
+        </div>
+        <form *ngIf="edicao" (ngSubmit)="salvar()">
+          <label>Nome: <input [(ngModel)]="usuario.nome" name="nome" required /></label><br />
+          <label>Email: <input [(ngModel)]="usuario.email" name="email" required /></label><br />
+          <label>Curso: <input [(ngModel)]="usuario.curso" name="curso" /></label><br />
+          <label>Semestre/Turma: <input [(ngModel)]="usuario.semestreTurma" name="semestreTurma" /></label><br />
+          <label>Bio: <input [(ngModel)]="usuario.bio" name="bio" /></label><br />
+          <label>Atletica: <input [(ngModel)]="usuario.atletica" name="atletica" /></label><br />
+          <label>Data de Nascimento: <input [(ngModel)]="usuario.dataNascimento" name="dataNascimento" type="date" /></label><br />
+          <label>Telefone: <input [(ngModel)]="usuario.telefone" name="telefone" /></label><br />
+          <button type="submit">Salvar</button>
+          <button type="button" (click)="edicao=false">Cancelar</button>
+        </form>
+      </div>
     </div>
-    <form *ngIf="edicao" (ngSubmit)="salvar()">
-      <label>Nome: <input [(ngModel)]="usuario.nome" name="nome" required /></label><br />
-      <label>Email: <input [(ngModel)]="usuario.email" name="email" required /></label><br />
-      <label>Curso: <input [(ngModel)]="usuario.curso" name="curso" /></label><br />
-      <label>Semestre/Turma: <input [(ngModel)]="usuario.semestreTurma" name="semestreTurma" /></label><br />
-      <label>Bio: <input [(ngModel)]="usuario.bio" name="bio" /></label><br />
-      <label>Atletica: <input [(ngModel)]="usuario.atletica" name="atletica" /></label><br />
-      <label>Data de Nascimento: <input [(ngModel)]="usuario.dataNascimento" name="dataNascimento" type="date" /></label><br />
-      <label>Telefone: <input [(ngModel)]="usuario.telefone" name="telefone" /></label><br />
-      <button type="submit">Salvar</button>
-      <button type="button" (click)="edicao=false">Cancelar</button>
-    </form>
-  </div>
+  </main>
 </div>
